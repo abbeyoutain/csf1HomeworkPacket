@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>csf1Homework.MadLibs</StartupObject>
+    <StartupObject>csf1Homework.TemperatureConverter</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,7 @@
     <Compile Include="FruitLoops.cs" />
     <Compile Include="MadLibs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemperatureConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
