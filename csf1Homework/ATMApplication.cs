@@ -17,7 +17,7 @@ namespace csf1Homework
             do
             {
 
-                Console.WriteLine("Enter account number: ");
+                Console.WriteLine("Welcome to Trust Us Bank.\n\nEnter account number: ");
                 string account = Console.ReadLine();
 
                 if (account == "1234")
@@ -38,38 +38,64 @@ namespace csf1Homework
                         if (pin == "4321")
                         {
                             correctPin = true;
+                            Console.Clear();
+                            Console.WriteLine(@"
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+                  You are logged in!
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+");
 
                             bool repeat = true;
+                            decimal accountBalance = 0;
+
                             do
                             {
                                 Console.WriteLine(@"
+B) Balance
 D) Deposit
 W) Withdrawal
 E) Exit
 ");
                                 string userChoice = Console.ReadLine().ToLower();
+                                Console.Clear();
 
                                 switch (userChoice)
                                 {
+                                    case "b":
+                                    case "balance":
+                                        Console.WriteLine($"Current balance: {accountBalance:c}\n\n" +
+                                            $"Do you want to make a deposit, a withdrawal, or exit the application?");
+                                        break;
+                                    
                                     case "d":
                                     case "deposit":
                                         Console.Write("How much do you want to deposit?\nEnter amount: ");
                                         decimal deposit = Convert.ToDecimal(Console.ReadLine());
+                                        accountBalance += deposit;
                                         Console.WriteLine($"{deposit:c} has been deposited into account 1234.\n\n" +
-                                            $"Do you want to make another deposit, a withdrawal, or exit the applicatoin?");
+                                            $"Current balance: {accountBalance:c}\n\n" +
+                                            $"Do you want to make another deposit, make a withdrawal," +
+                                            $" or exit the application?");
                                         break;
                                     
                                     case "w":
                                     case "withdrawal":
                                         Console.Write("How much do you want to withdraw?\nEnter amount: ");
                                         decimal withdrawal = Convert.ToDecimal(Console.ReadLine());
+                                        accountBalance -= withdrawal;
                                         Console.WriteLine($"{withdrawal:c} has been withdrawn from account 1234.\n\n" +
-                                            $"Do you want to make another withdrawal, a deposit, or exit the applicatoin?");
+                                            $"Current balance: {accountBalance:c}\n\n" +
+                                            $"Do you want to make a deposit, make another withdrawal," +
+                                            $" or exit the application?");
                                         break;
 
                                     case "e":
                                     case "exit":
-                                        Console.WriteLine("\nThank you for your business.");
+                                        Console.WriteLine(@"
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+                    Have a great day!
+->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->
+");
                                         repeat = false;
                                         break;
                                     
